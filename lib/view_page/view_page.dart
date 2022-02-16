@@ -29,19 +29,11 @@ class _ViewPageState extends State<ViewPage> {
             ],
           ),
         ),
-        body: Container(
-          child: const TabBarView(
-            children: <Widget>[
-              HomeContentListView(),
-              HomeContentGridView(),
-            ],
-          ),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/view_page/bg1.jpg"),
-              fit: BoxFit.cover,
-            ),
-          ),
+        body: const TabBarView(
+          children: <Widget>[
+            HomeContentListView(),
+            HomeContentGridView(),
+          ],
         ),
       ),
     );

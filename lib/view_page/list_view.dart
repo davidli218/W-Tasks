@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wtasks/app_color.dart';
 import 'package:wtasks/event.dart';
 
 class HomeContentListView extends StatefulWidget {
@@ -20,43 +19,39 @@ class _HomeContentListViewState extends State<HomeContentListView> {
         return _buildRow(_eventList[index]);
       },
       separatorBuilder: (context, index) {
-        return Container(
-          child: const Divider(
-            height: 2.0,
-            indent: 20.0,
-            endIndent: 20.0,
-            color: Color(0xFF766969),
-          ),
-          color: ProjectColor.transWhiteBg,
+        return const Divider(
+          height: 2,
+          thickness: 0.8,
         );
       },
     );
   }
 
   Widget _buildRow(Event event) {
-    return Container(
-      child: ListTile(
-        title: Text(event.title),
-        subtitle: Text(event.subtitle),
-        leading: CircleAvatar(
-          child: event.icon,
-          backgroundColor: const Color(0x995F5C5C),
-        ),
-        trailing: Icon(
-          event.bookStatus ? Icons.bookmark : Icons.bookmark_border,
-          color: event.bookStatus ? Colors.deepOrange : null,
-        ),
-        onTap: () {
-          setState(() {
-            if (event.bookStatus) {
-              event.bookStatus = false;
-            } else {
-              event.bookStatus = true;
-            }
-          });
-        },
+    return ListTile(
+      title: Text(
+        event.title,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
       ),
-      color: ProjectColor.transWhiteBg,
+      subtitle: Text(event.subtitle),
+      leading: CircleAvatar(
+        child: event.icon,
+        backgroundColor: Colors.white,
+      ),
+      trailing: Icon(
+        event.bookStatus ? Icons.bookmark : Icons.bookmark_border,
+        color: event.bookStatus ? Colors.deepOrange : null,
+      ),
+      onTap: () {
+        setState(() {
+          if (event.bookStatus) {
+            event.bookStatus = false;
+          } else {
+            event.bookStatus = true;
+          }
+        });
+      },
     );
   }
 }
