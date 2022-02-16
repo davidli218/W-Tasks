@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:wtasks/explore_page/dice_roller/module_color.dart';
+import 'package:wtasks/app_color.dart';
 
 class DiceRollerHomePage extends StatefulWidget {
   const DiceRollerHomePage({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _DiceRollerHomePageState extends State<DiceRollerHomePage> {
       value: id,
       child: Row(
         children: [
-          Icon(icon, color: AppColor.color4Dark),
+          Icon(icon, color: DiceModuleColor.color4Dark),
           const SizedBox(width: 25),
           Text(text, style: const TextStyle(fontSize: 16)),
         ],
@@ -47,7 +47,7 @@ class _DiceRollerHomePageState extends State<DiceRollerHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Dice Roller"),
-        backgroundColor: AppColor.color5Dark,
+        backgroundColor: DiceModuleColor.color5Dark,
         centerTitle: true,
       ),
       body: Center(
@@ -69,7 +69,7 @@ class _DiceRollerHomePageState extends State<DiceRollerHomePage> {
                     label: const Text("Reset"),
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
-                        AppColor.color4Dark,
+                        DiceModuleColor.color4Dark,
                       ),
                     ),
                     onPressed: _resetCounter,
@@ -79,7 +79,7 @@ class _DiceRollerHomePageState extends State<DiceRollerHomePage> {
                     label: const Text("Flip a coin"),
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
-                        AppColor.color4Dark,
+                        DiceModuleColor.color4Dark,
                       ),
                     ),
                     onPressed: _incrementCounter,
@@ -91,7 +91,7 @@ class _DiceRollerHomePageState extends State<DiceRollerHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColor.color5Dark,
+        backgroundColor: DiceModuleColor.color5Dark,
         onPressed: () {
           Navigator.push(
             context,
@@ -123,7 +123,7 @@ class CoinCountDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColor.color1Light,
+      color: DiceModuleColor.color1Light,
       child: SizedBox(
         width: 300,
         height: 180,
@@ -147,7 +147,7 @@ class CoinCountDisplayContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const TextStyle unitTextStyle = TextStyle(
-      color: AppColor.color4Dark,
+      color: DiceModuleColor.color4Dark,
       fontFamily: 'courier',
       fontWeight: FontWeight.bold,
       fontSize: 24,
