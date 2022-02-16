@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wtasks/view_page/grid_view.dart';
 import 'package:wtasks/view_page/list_view.dart';
 
 class ViewPage extends StatefulWidget {
@@ -12,30 +11,15 @@ class ViewPage extends StatefulWidget {
 class _ViewPageState extends State<ViewPage> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("ViewPage"),
-          bottom: const TabBar(
-            indicatorColor: Colors.white,
-            tabs: [
-              Tab(
-                text: "ListView",
-              ),
-              Tab(
-                text: "GridView",
-              ),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "ViewPage",
+          style: TextStyle(color: Colors.black),
         ),
-        body: const TabBarView(
-          children: <Widget>[
-            HomeContentListView(),
-            HomeContentGridView(),
-          ],
-        ),
+        backgroundColor: Colors.white,
       ),
+      body: const HomeContentListView(),
     );
   }
 }
