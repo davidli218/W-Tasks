@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wtasks/event.dart';
+import 'package:wtasks/view_page/event.dart';
 
 class HomeContentListView extends StatefulWidget {
   const HomeContentListView({Key? key}) : super(key: key);
