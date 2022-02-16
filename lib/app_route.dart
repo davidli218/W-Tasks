@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wtasks/explore_page/dice_roller/dice_roller_home.dart';
-import 'package:wtasks/home_page.dart';
+import 'package:wtasks/app_home.dart';
 
 const String home = '/';
 const String diceRollerHome = '/explore_page/dice_roller/home';
