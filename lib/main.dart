@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wtasks/home_page.dart';
+import 'package:wtasks/app_route.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -17,9 +17,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'W-Tasks',
-      home: HomeScreen(),
+      routes: routes,
+      onUnknownRoute: (RouteSettings setting) =>
+          MaterialPageRoute(builder: (context) => const UnknownPage()),
     );
   }
 }

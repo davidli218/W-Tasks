@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wtasks/explore_page/dice_roller/dice_roller_home.dart';
+import 'package:wtasks/app_route.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({Key? key}) : super(key: key);
@@ -66,12 +66,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       TextButton(
                         child: const Text('OPEN'),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return const DiceRollerHomePage();
-                            }),
-                          );
+                          Navigator.pushNamed(context, diceRollerHome);
                         },
                       ),
                     ],
