@@ -15,11 +15,11 @@ class _ExplorePageState extends State<ExplorePage> {
       appBar: AppBar(
         title: const Text("ExplorePage"),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            Card(
+      body: ListView(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Card(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(15)),
               ),
@@ -73,9 +73,9 @@ class _ExplorePageState extends State<ExplorePage> {
                   )
                 ],
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }
