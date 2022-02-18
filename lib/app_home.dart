@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wtasks/account_page/account_page.dart';
-import 'package:wtasks/calendar_page/calendar_page.dart';
+import 'package:wtasks/dashboard_page/dashboard_page.dart';
 import 'package:wtasks/explore_page/explore_page.dart';
 import 'package:wtasks/view_page/view_page.dart';
 
@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var _currentPage = 0;
 
   final List<Widget> _pageList = <Widget>[
-    const CalendarPage(),
+    const DashboardPage(),
     const ViewPage(),
     const ExplorePage(),
     const AccountPage(),
@@ -36,8 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: "Calendar",
+            icon: Icon(Icons.dashboard),
+            label: "Dashboard",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.view_list),
