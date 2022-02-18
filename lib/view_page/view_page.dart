@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wtasks/view_page/list_view.dart';
+import 'package:wtasks/app_color.dart';
+import 'package:wtasks/view_page/event.dart';
+import 'package:wtasks/view_page/widgets/task_filter.dart';
+import 'package:wtasks/view_page/widgets/task_tile.dart';
 
 class ViewPage extends StatefulWidget {
   const ViewPage({Key? key}) : super(key: key);
@@ -9,17 +12,42 @@ class ViewPage extends StatefulWidget {
 }
 
 class _ViewPageState extends State<ViewPage> {
+  final List<Event> _eventList = EventList().eventList;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           "ViewPage",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1,
+          ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: DiceModuleColor.color4Dark,
+        elevation: 0,
       ),
-      body: const HomeContentListView(),
+      body: Column(
+        children: [
+          const FiltersWidget(),
+          _buildTaskListView(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTaskListView() {
+    return Expanded(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: _eventList.length,
+        itemBuilder: (context, index) {
+          return TaskTile(event: _eventList[index]);
+        },
+      ),
     );
   }
 }
