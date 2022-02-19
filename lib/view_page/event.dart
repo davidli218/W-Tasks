@@ -4,7 +4,8 @@ class Event {
   String title;
   String subtitle;
   Icon icon;
-  bool bookStatus = false;
+  bool isImportant = false;
+  bool isFinished = false;
 
   Event(
     this.title,
