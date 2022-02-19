@@ -7,6 +7,8 @@ import 'package:wtasks/Screen/view_screen/view_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/';
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

@@ -3,13 +3,13 @@ import 'package:wtasks/Screen/app_home.dart';
 import 'package:wtasks/Screen/explore_screen/dice_roller/dice_roller_home.dart';
 import 'package:wtasks/Screen/view_screen/event_details_screen.dart';
 
-const String home = '/';
-const String diceRollerHome = '/explore_screen/dice_roller/home';
-const String eventDetailsScreen = '/view_screen/event_details_screen';
+const String homeScreen = HomeScreen.routeName;
+const String diceRollerHomeScreen = DiceRollerHomeScreen.routeName;
+const String eventDetailsScreen = EventDetailsScreen.routeName;
 
 final routes = {
-  home: (context) => const HomeScreen(),
-  diceRollerHome: (context) => const DiceRollerHomeScreen(),
+  homeScreen: (context) => const HomeScreen(),
+  diceRollerHomeScreen: (context) => const DiceRollerHomeScreen(),
   eventDetailsScreen: (context) => const EventDetailsScreen(),
 };
 

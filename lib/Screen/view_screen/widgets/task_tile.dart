@@ -21,7 +21,7 @@ class _TaskTileState extends State<TaskTile> {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, eventDetailsScreen);
+          Navigator.of(context).pushNamed(eventDetailsScreen);
         },
         borderRadius: BorderRadius.circular(8.0),
         child: Padding(

@@ -66,7 +66,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       TextButton(
                         child: const Text('OPEN'),
                         onPressed: () {
-                          Navigator.pushNamed(context, diceRollerHome);
+                          Navigator.of(context).pushNamed(diceRollerHomeScreen);
                         },
                       ),
                     ],

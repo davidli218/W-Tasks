@@ -6,6 +6,8 @@ import 'package:wtasks/app_color.dart';
 class DiceRollerHomeScreen extends StatefulWidget {
   const DiceRollerHomeScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/ExploreScreen/DiceRollerHomeScreen';
+
   @override
   State<DiceRollerHomeScreen> createState() => _DiceRollerHomeScreenState();
 }
