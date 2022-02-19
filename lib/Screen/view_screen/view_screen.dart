@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:wtasks/Data/event.dart';
+import 'package:wtasks/Screen/view_screen/widgets/task_filter.dart';
+import 'package:wtasks/Screen/view_screen/widgets/task_tile.dart';
 import 'package:wtasks/app_color.dart';
-import 'package:wtasks/view_page/event.dart';
-import 'package:wtasks/view_page/widgets/task_filter.dart';
-import 'package:wtasks/view_page/widgets/task_tile.dart';
 
-class ViewPage extends StatefulWidget {
-  const ViewPage({Key? key}) : super(key: key);
+class ViewScreen extends StatefulWidget {
+  const ViewScreen({Key? key}) : super(key: key);
 
   @override
-  _ViewPageState createState() => _ViewPageState();
+  _ViewScreenState createState() => _ViewScreenState();
 }
 
-class _ViewPageState extends State<ViewPage> {
+class _ViewScreenState extends State<ViewScreen> {
   final List<Event> _eventList = EventList().eventList;
 
   @override

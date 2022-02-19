@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:wtasks/app_route.dart';
 
-class ExplorePage extends StatefulWidget {
-  const ExplorePage({Key? key}) : super(key: key);
+class ExploreScreen extends StatefulWidget {
+  const ExploreScreen({Key? key}) : super(key: key);
 
   @override
-  _ExplorePageState createState() => _ExplorePageState();
+  _ExploreScreenState createState() => _ExploreScreenState();
 }
 
-class _ExplorePageState extends State<ExplorePage> {
+class _ExploreScreenState extends State<ExploreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

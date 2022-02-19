@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:wtasks/app_color.dart';
 
-class DiceRollerHomePage extends StatefulWidget {
-  const DiceRollerHomePage({Key? key}) : super(key: key);
+class DiceRollerHomeScreen extends StatefulWidget {
+  const DiceRollerHomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<DiceRollerHomePage> createState() => _DiceRollerHomePageState();
+  State<DiceRollerHomeScreen> createState() => _DiceRollerHomeScreenState();
 }
 
-class _DiceRollerHomePageState extends State<DiceRollerHomePage> {
+class _DiceRollerHomeScreenState extends State<DiceRollerHomeScreen> {
   final Random _random = Random();
   int _counter = 0;
   int _headCounter = 0;

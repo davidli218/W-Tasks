@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wtasks/account_page/account_page.dart';
-import 'package:wtasks/dashboard_page/dashboard_page.dart';
-import 'package:wtasks/explore_page/explore_page.dart';
-import 'package:wtasks/view_page/view_page.dart';
+import 'package:wtasks/Screen/account_screen/account_screen.dart';
+import 'package:wtasks/Screen/dashboard_screen/dashboard_screen.dart';
+import 'package:wtasks/Screen/explore_screen/explore_screen.dart';
+import 'package:wtasks/Screen/view_screen/view_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,10 +15,10 @@ class _HomeScreenState extends State<HomeScreen> {
   var _currentPage = 0;
 
   final List<Widget> _pageList = <Widget>[
-    const DashboardPage(),
-    const ViewPage(),
-    const ExplorePage(),
-    const AccountPage(),
+    const DashboardScreen(),
+    const ViewScreen(),
+    const ExploreScreen(),
+    const AccountScreen(),
   ];
 
   @override

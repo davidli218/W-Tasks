@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wtasks/Data/event.dart';
 import 'package:wtasks/app_route.dart';
-import 'package:wtasks/view_page/event.dart';
 
 class TaskTile extends StatefulWidget {
   const TaskTile({Key? key, required this.event}) : super(key: key);

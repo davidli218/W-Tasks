@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:wtasks/app_home.dart';
-import 'package:wtasks/explore_page/dice_roller/dice_roller_home.dart';
-import 'package:wtasks/view_page/event_details_screen.dart';
+import 'package:wtasks/Screen/app_home.dart';
+import 'package:wtasks/Screen/explore_screen/dice_roller/dice_roller_home.dart';
+import 'package:wtasks/Screen/view_screen/event_details_screen.dart';
 
 const String home = '/';
-const String diceRollerHome = '/explore_page/dice_roller/home';
-const String eventDetailsScreen = '/view_page/event_details_screen';
+const String diceRollerHome = '/explore_screen/dice_roller/home';
+const String eventDetailsScreen = '/view_screen/event_details_screen';
 
 final routes = {
   home: (context) => const HomeScreen(),
-  diceRollerHome: (context) => const DiceRollerHomePage(),
+  diceRollerHome: (context) => const DiceRollerHomeScreen(),
   eventDetailsScreen: (context) => const EventDetailsScreen(),
 };
 
