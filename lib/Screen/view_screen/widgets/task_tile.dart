@@ -12,6 +12,14 @@ class TaskTile extends StatefulWidget {
 }
 
 class _TaskTileState extends State<TaskTile> {
+  String _formatTime(DateTime time) {
+    return "${time.year.toString()}"
+        "-${time.month.toString().padLeft(2, '0')}"
+        "-${time.day.toString().padLeft(2, '0')}"
+        " ${time.hour.toString().padLeft(2, '0')}"
+        ":${time.minute.toString().padLeft(2, '0')}";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -38,12 +46,17 @@ class _TaskTileState extends State<TaskTile> {
                     : TextDecoration.none,
               ),
             ),
-            subtitle: Text(
-              widget.event.subtitle,
-              style: TextStyle(
-                decoration: widget.event.isFinished
-                    ? TextDecoration.lineThrough
-                    : TextDecoration.none,
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 4.0),
+              child: Text(
+                widget.event.place.isEmpty
+                    ? _formatTime(widget.event.deadLine)
+                    : widget.event.place,
+                style: TextStyle(
+                  decoration: widget.event.isFinished
+                      ? TextDecoration.lineThrough
+                      : TextDecoration.none,
+                ),
               ),
             ),
             leading: Checkbox(

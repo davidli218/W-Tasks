@@ -1,29 +1,33 @@
-import 'package:flutter/material.dart';
-
 class Event {
+  Event(this.title, this.deadLine, {this.place = ''});
+
   String title;
-  String subtitle;
-  Icon icon;
+  DateTime deadLine;
+  String place;
+
   bool isImportant = false;
   bool isFinished = false;
-
-  Event(
-    this.title,
-    this.subtitle, {
-    this.icon = const Icon(Icons.task),
-  });
 }
 
 class EventList {
   final List<Event> _eventList = <Event>[
-    Event("Individual Presentations", "Henry Morley 212",
-        icon: const Icon(Icons.present_to_all, color: Colors.green)),
-    Event("Submit Group Report", "Friday, 18 February, 17:00",
-        icon: const Icon(Icons.assessment, color: Colors.blue)),
-    Event("Programming 1: Arrays Assignment", "Sunday, 27 February, 23:59",
-        icon: const Icon(Icons.my_library_books, color: Colors.red)),
-    Event("Submit Sustainability and Ethics Report (Late Submission)",
-        "Thursday, 24 February, 17:00")
+    Event(
+      "Individual Presentations",
+      DateTime.utc(2022, 2, 15, 12),
+      place: "Henry Morley 212",
+    ),
+    Event(
+      "Submit Group Report",
+      DateTime.utc(2022, 2, 18, 17),
+    ),
+    Event(
+      "Programming 1: Arrays Assignment",
+      DateTime.utc(2022, 2, 27, 23, 59),
+    ),
+    Event(
+      "Submit Sustainability and Ethics Report (Late Submission)",
+      DateTime.utc(2022, 2, 24, 17),
+    )
   ];
 
   get eventList {
