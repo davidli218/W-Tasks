@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:wtasks/Widget/app_bar.dart';
 import 'package:wtasks/app_color.dart';
 
 class DiceRollerHomeScreen extends StatefulWidget {
@@ -47,11 +48,7 @@ class _DiceRollerHomeScreenState extends State<DiceRollerHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Dice Roller"),
-        backgroundColor: DiceModuleColor.color5Dark,
-        centerTitle: true,
-      ),
+      appBar: const ProjectAppBar(title: "Dice Roller"),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -51,8 +51,8 @@ class _FiltersWidgetState extends State<FiltersWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60.0,
-      padding: const EdgeInsets.fromLTRB(5, 10, 5, 5),
+      height: 50.0,
+      padding: const EdgeInsets.symmetric(horizontal: 4.0),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: filters.length,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wtasks/Widget/app_bar.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -10,11 +11,9 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("AccountPage"),
-      ),
-      body: const Center(
+    return const Scaffold(
+      appBar: ProjectAppBar(title: "Account"),
+      body: Center(
         child: Text("Empty"),
       ),
     );

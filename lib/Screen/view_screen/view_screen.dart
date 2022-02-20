@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wtasks/Data/event.dart';
+import 'package:wtasks/Widget/app_bar.dart';
 import 'package:wtasks/Widget/task_filter.dart';
 import 'package:wtasks/Widget/task_tile.dart';
-import 'package:wtasks/app_color.dart';
 
 class ViewScreen extends StatefulWidget {
   const ViewScreen({Key? key}) : super(key: key);
@@ -17,19 +17,7 @@ class _ViewScreenState extends State<ViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          "ViewPage",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1,
-          ),
-        ),
-        backgroundColor: DiceModuleColor.color4Dark,
-        elevation: 0,
-      ),
+      appBar: const ProjectAppBar(title: "View"),
       body: Column(
         children: [
           const FiltersWidget(),

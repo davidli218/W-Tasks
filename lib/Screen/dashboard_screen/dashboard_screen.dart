@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wtasks/Widget/app_bar.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -10,11 +11,9 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("DashboardPage"),
-      ),
-      body: const Center(
+    return const Scaffold(
+      appBar: ProjectAppBar(title: "Dashboard"),
+      body: Center(
         child: Text("Empty"),
       ),
     );
