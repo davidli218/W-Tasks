@@ -49,7 +49,7 @@ class _OverviewCardState extends State<OverviewCard> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 16.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 16.0, 20.0, 16.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -103,7 +103,7 @@ class _OverviewCardState extends State<OverviewCard> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(24.0, 16.0, 24.0, 16.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 16.0, 20.0, 16.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -112,21 +112,24 @@ class _OverviewCardState extends State<OverviewCard> {
                   child: ColoredBox(
                     color: Colors.indigo,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Icon(widget.moduleIcon, color: Colors.white),
+                      padding: const EdgeInsets.all(3),
+                      child: Icon(
+                        widget.moduleIcon,
+                        size: 28.0,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  padding: const EdgeInsets.only(left: 4.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
                         "Powered by",
                         style: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 12.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.grey,
                         ),
@@ -134,7 +137,7 @@ class _OverviewCardState extends State<OverviewCard> {
                       Text(
                         widget.moduleSubtitle,
                         style: const TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
