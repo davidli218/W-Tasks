@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wtasks/Screen/explore_screen/widgets/overview_card.dart';
+import 'package:wtasks/Widget/overview_card.dart';
 import 'package:wtasks/app_route.dart';
 
 class ExploreScreen extends StatefulWidget {

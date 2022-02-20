@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wtasks/Data/event.dart';
-import 'package:wtasks/Screen/view_screen/widgets/task_filter.dart';
-import 'package:wtasks/Screen/view_screen/widgets/task_tile.dart';
+import 'package:wtasks/Widget/task_filter.dart';
+import 'package:wtasks/Widget/task_tile.dart';
 import 'package:wtasks/app_color.dart';
 
 class ViewScreen extends StatefulWidget {
