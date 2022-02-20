@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 class OverviewCard extends StatefulWidget {
   const OverviewCard(
       {Key? key,
-      required this.moduleTitle,
-      this.moduleSubtitle = '',
-      required this.moduleDescription,
-      required this.moduleIcon,
-      required this.moduleOverviewImage,
-      required this.moduleRouteName})
+      required this.title,
+      this.subtitle = 'Flutter',
+      required this.description,
+      required this.icon,
+      required this.overviewImage,
+      required this.routeName})
       : super(key: key);
 
-  final String moduleTitle;
-  final String moduleSubtitle;
-  final String moduleDescription;
-  final IconData moduleIcon;
-  final ImageProvider moduleOverviewImage;
-  final String moduleRouteName;
+  final String title;
+  final String subtitle;
+  final String description;
+  final Widget icon;
+  final ImageProvider overviewImage;
+  final String routeName;
 
   @override
   _OverviewCardState createState() => _OverviewCardState();
@@ -43,7 +43,7 @@ class _OverviewCardState extends State<OverviewCard> {
             child: AspectRatio(
               aspectRatio: 16 / 9,
               child: Image(
-                image: widget.moduleOverviewImage,
+                image: widget.overviewImage,
                 fit: BoxFit.cover,
               ),
             ),
@@ -60,14 +60,14 @@ class _OverviewCardState extends State<OverviewCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.moduleTitle,
+                          widget.title,
                           style: const TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
-                          widget.moduleDescription,
+                          widget.description,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
@@ -81,7 +81,7 @@ class _OverviewCardState extends State<OverviewCard> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(widget.moduleRouteName);
+                    Navigator.of(context).pushNamed(widget.routeName);
                   },
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all(
@@ -109,16 +109,10 @@ class _OverviewCardState extends State<OverviewCard> {
               children: [
                 ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  child: ColoredBox(
-                    color: Colors.indigo,
-                    child: Padding(
-                      padding: const EdgeInsets.all(3),
-                      child: Icon(
-                        widget.moduleIcon,
-                        size: 28.0,
-                        color: Colors.white,
-                      ),
-                    ),
+                  child: SizedBox(
+                    width: 32.0,
+                    height: 32.0,
+                    child: widget.icon,
                   ),
                 ),
                 Padding(
@@ -135,7 +129,7 @@ class _OverviewCardState extends State<OverviewCard> {
                         ),
                       ),
                       Text(
-                        widget.moduleSubtitle,
+                        widget.subtitle,
                         style: const TextStyle(
                           fontSize: 14.0,
                           fontWeight: FontWeight.bold,
