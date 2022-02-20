@@ -12,28 +12,15 @@ class ExploreScreen extends StatefulWidget {
 class _ExploreScreenState extends State<ExploreScreen> {
   @override
   Widget build(BuildContext context) {
+    const overviewCardPadding = EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 8.0);
+
     return Scaffold(
       body: ListView(
-        children: const [
-          Padding(
-            padding: EdgeInsets.only(left: 20.0, top: 8.0),
-            child: Text(
-              "Explore",
-              style: TextStyle(
-                fontSize: 32.0,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.0,
-              ),
-            ),
-          ),
-          Divider(
-            height: 24.0,
-            thickness: 1.0,
-            indent: 32.0,
-            endIndent: 32.0,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 8.0),
+        children: [
+          buildAppBar(),
+          buildDivider(),
+          const Padding(
+            padding: overviewCardPadding,
             child: OverviewCard(
               title: "Dice Roller",
               subtitle: "RI TEII",
@@ -57,8 +44,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
               routeName: diceRollerHomeScreen,
             ),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 8.0),
+          const Padding(
+            padding: overviewCardPadding,
             child: OverviewCard(
               title: "Empty Module",
               description: "This a empty module",
@@ -72,6 +59,29 @@ class _ExploreScreenState extends State<ExploreScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Padding buildAppBar() {
+    return const Padding(
+      padding: EdgeInsets.only(left: 20.0, top: 8.0),
+      child: Text(
+        "Explore",
+        style: TextStyle(
+          fontSize: 32.0,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 1.0,
+        ),
+      ),
+    );
+  }
+
+  Divider buildDivider() {
+    return const Divider(
+      height: 24.0,
+      thickness: 1.0,
+      indent: 32.0,
+      endIndent: 32.0,
     );
   }
 }
