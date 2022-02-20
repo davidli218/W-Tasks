@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wtasks/Widget/app_bar.dart';
 import 'package:wtasks/Widget/overview_card.dart';
 import 'package:wtasks/app_route.dart';
 
@@ -15,11 +16,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
     const overviewCardPadding = EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 8.0);
 
     return Scaffold(
+      appBar: const ProjectAppBar(title: "Explore"),
       body: ListView(
-        children: [
-          buildAppBar(),
-          buildDivider(),
-          const Padding(
+        children: const [
+          Padding(
             padding: overviewCardPadding,
             child: OverviewCard(
               title: "Dice Roller",
@@ -44,7 +44,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
               routeName: diceRollerHomeScreen,
             ),
           ),
-          const Padding(
+          Padding(
             padding: overviewCardPadding,
             child: OverviewCard(
               title: "Empty Module",
@@ -59,29 +59,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
           ),
         ],
       ),
-    );
-  }
-
-  Padding buildAppBar() {
-    return const Padding(
-      padding: EdgeInsets.only(left: 20.0, top: 8.0),
-      child: Text(
-        "Explore",
-        style: TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 1.0,
-        ),
-      ),
-    );
-  }
-
-  Divider buildDivider() {
-    return const Divider(
-      height: 24.0,
-      thickness: 1.0,
-      indent: 32.0,
-      endIndent: 32.0,
     );
   }
 }
