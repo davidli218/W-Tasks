@@ -13,13 +13,27 @@ class _ExploreScreenState extends State<ExploreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ExplorePage"),
-      ),
       body: ListView(
         children: const [
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.only(left: 20.0, top: 8.0),
+            child: Text(
+              "Explore",
+              style: TextStyle(
+                fontSize: 32.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.0,
+              ),
+            ),
+          ),
+          Divider(
+            height: 24.0,
+            thickness: 1.0,
+            indent: 32.0,
+            endIndent: 32.0,
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 8.0),
             child: OverviewCard(
               title: "Dice Roller",
               subtitle: "RI TEII",
@@ -44,7 +58,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 8.0),
             child: OverviewCard(
               title: "Empty Module",
               description: "This a empty module",
