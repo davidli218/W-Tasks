@@ -18,10 +18,16 @@ class UnknownPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Unknown Route'),
-        centerTitle: true,
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          "Unknown Route",
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 32.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
