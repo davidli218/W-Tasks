@@ -43,6 +43,19 @@ class _ExploreScreenState extends State<ExploreScreen> {
               routeName: diceRollerHomeScreen,
             ),
           ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: OverviewCard(
+              title: "Empty Module",
+              description: "This a empty module",
+              icon: Image(
+                image: AssetImage("assets/explore/xcode_icon.png"),
+                fit: BoxFit.cover,
+              ),
+              overviewImage: AssetImage("assets/explore/emptyApp_cover.jpg"),
+              routeName: 'null',
+            ),
+          ),
         ],
       ),
     );
