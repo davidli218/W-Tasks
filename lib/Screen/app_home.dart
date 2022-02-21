@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:wtasks/Screen/account_screen/account_screen.dart';
 import 'package:wtasks/Screen/dashboard_screen/dashboard_screen.dart';
@@ -26,7 +27,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pageList[_currentPage],
+      body: PageTransitionSwitcher(
+        transitionBuilder: (
+          child,
+          animation,
+          secondaryAnimation,
+        ) {
+          return FadeThroughTransition(
+            animation: animation,
+            secondaryAnimation: secondaryAnimation,
+            child: child,
+          );
+        },
+        child: _pageList[_currentPage],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         iconSize: 24.0,
