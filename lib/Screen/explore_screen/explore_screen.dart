@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wtasks/Screen/explore_screen/dice_roller/dice_roller_home.dart';
 import 'package:wtasks/Widget/app_bar.dart';
 import 'package:wtasks/Widget/overview_card.dart';
 import 'package:wtasks/app_route.dart';
@@ -32,7 +33,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           ),
         ),
         overviewImage: AssetImage("assets/explore/dice_cover.jpg"),
-        routeName: diceRollerHomeScreen,
+        openBuilder: DiceRollerHomeScreen(),
       ),
       const OverviewCard(
         title: "Empty Module",
@@ -42,7 +43,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           fit: BoxFit.cover,
         ),
         overviewImage: AssetImage("assets/explore/emptyApp_cover.jpg"),
-        routeName: 'null',
+        openBuilder: UnknownPage(),
       ),
     ];
   }
