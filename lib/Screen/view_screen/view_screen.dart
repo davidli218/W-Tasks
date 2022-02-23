@@ -48,7 +48,7 @@ class _ViewScreenState extends State<ViewScreen> {
       body: Column(
         children: [
           FiltersWidget(updateFilter: _updateFilter),
-          _buildTaskListView(),
+          Expanded(child: _buildTaskListView()),
         ],
       ),
     );
@@ -56,26 +56,26 @@ class _ViewScreenState extends State<ViewScreen> {
 
   Widget _buildTaskListView() {
     if (_displayedEventList.isEmpty) {
-      return const Expanded(
-          child: Center(
-        child: Text(
-          "Already Clear",
-          style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ));
-    } else {
-      return Expanded(
-        child: ListView.builder(
-          shrinkWrap: true,
-          itemCount: _displayedEventList.length,
-          itemBuilder: (context, index) {
-            return TaskTile(event: _displayedEventList[index]);
-          },
-        ),
-      );
+      return _buildEmptyListView();
     }
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: _displayedEventList.length,
+      itemBuilder: (context, index) {
+        return TaskTile(event: _displayedEventList[index]);
+      },
+    );
+  }
+
+  Center _buildEmptyListView() {
+    return const Center(
+      child: Text(
+        "Already Clear",
+        style: TextStyle(
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
   }
 }
