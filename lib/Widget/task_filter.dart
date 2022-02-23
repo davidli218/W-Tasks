@@ -2,7 +2,9 @@ import "package:flutter/material.dart";
 import 'package:wtasks/app_color.dart';
 
 class FiltersWidget extends StatefulWidget {
-  const FiltersWidget({Key? key}) : super(key: key);
+  const FiltersWidget({Key? key, required this.updateFilter}) : super(key: key);
+
+  final Function updateFilter;
 
   @override
   _FiltersWidgetState createState() => _FiltersWidgetState();
@@ -24,6 +26,7 @@ class _FiltersWidgetState extends State<FiltersWidget> {
       padding: const EdgeInsets.only(left: 12.0),
       child: GestureDetector(
         onTap: () {
+          widget.updateFilter(title);
           setState(() {
             selectedFilter = title;
           });

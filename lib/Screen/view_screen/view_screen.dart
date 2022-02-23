@@ -12,7 +12,34 @@ class ViewScreen extends StatefulWidget {
 }
 
 class _ViewScreenState extends State<ViewScreen> {
+  _ViewScreenState() {
+    _displayedEventList = _eventList.eventListAll;
+  }
+
   final _eventList = EventList();
+  late List<Event> _displayedEventList;
+
+  _updateFilter(filterName) {
+    setState(() {
+      switch (filterName) {
+        case "All":
+          _displayedEventList = _eventList.eventListAll;
+          break;
+        case "Stared":
+          _displayedEventList = _eventList.eventListStared;
+          break;
+        case "Open":
+          _displayedEventList = _eventList.eventListOpened;
+          break;
+        case "Closed":
+          _displayedEventList = _eventList.eventListClosed;
+          break;
+        case "Expired":
+          _displayedEventList = _eventList.eventListExpired;
+          break;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +47,7 @@ class _ViewScreenState extends State<ViewScreen> {
       appBar: const ProjectAppBar(title: "View"),
       body: Column(
         children: [
-          const FiltersWidget(),
+          FiltersWidget(updateFilter: _updateFilter),
           _buildTaskListView(),
         ],
       ),
@@ -28,14 +55,27 @@ class _ViewScreenState extends State<ViewScreen> {
   }
 
   Widget _buildTaskListView() {
-    return Expanded(
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: _eventList.length,
-        itemBuilder: (context, index) {
-          return TaskTile(event: _eventList.eventListAll[index]);
-        },
-      ),
-    );
+    if (_displayedEventList.isEmpty) {
+      return const Expanded(
+          child: Center(
+        child: Text(
+          "Already Clear",
+          style: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ));
+    } else {
+      return Expanded(
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: _displayedEventList.length,
+          itemBuilder: (context, index) {
+            return TaskTile(event: _displayedEventList[index]);
+          },
+        ),
+      );
+    }
   }
 }
