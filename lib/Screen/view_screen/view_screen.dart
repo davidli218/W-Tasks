@@ -12,7 +12,7 @@ class ViewScreen extends StatefulWidget {
 }
 
 class _ViewScreenState extends State<ViewScreen> {
-  final List<Event> _eventList = EventList().eventList;
+  final _eventList = EventList();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _ViewScreenState extends State<ViewScreen> {
         shrinkWrap: true,
         itemCount: _eventList.length,
         itemBuilder: (context, index) {
-          return TaskTile(event: _eventList[index]);
+          return TaskTile(event: _eventList.eventListAll[index]);
         },
       ),
     );
