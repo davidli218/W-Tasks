@@ -16,25 +16,33 @@ class _ViewScreenState extends State<ViewScreen> {
     _displayedEventList = _eventList.eventListAll;
   }
 
+  final List _filters = [
+    "All",
+    "Stared",
+    "Open",
+    "Closed",
+    "Expired",
+  ];
+
   final _eventList = EventList();
   late List<Event> _displayedEventList;
 
   _updateFilter(filterName) {
     setState(() {
-      switch (filterName) {
-        case "All":
+      switch (_filters.indexOf(filterName)) {
+        case 0:
           _displayedEventList = _eventList.eventListAll;
           break;
-        case "Stared":
+        case 1:
           _displayedEventList = _eventList.eventListStared;
           break;
-        case "Open":
+        case 2:
           _displayedEventList = _eventList.eventListOpened;
           break;
-        case "Closed":
+        case 3:
           _displayedEventList = _eventList.eventListClosed;
           break;
-        case "Expired":
+        case 4:
           _displayedEventList = _eventList.eventListExpired;
           break;
       }
@@ -47,22 +55,22 @@ class _ViewScreenState extends State<ViewScreen> {
       appBar: const ProjectAppBar(title: "View"),
       body: Column(
         children: [
-          FiltersWidget(updateFilter: _updateFilter),
-          Expanded(child: _buildTaskListView()),
+          FiltersWidget(filters: _filters, updateFilter: _updateFilter),
+          Expanded(child: _buildTaskListView(_displayedEventList)),
         ],
       ),
     );
   }
 
-  Widget _buildTaskListView() {
-    if (_displayedEventList.isEmpty) {
+  Widget _buildTaskListView(list) {
+    if (list.isEmpty) {
       return _buildEmptyListView();
     }
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: _displayedEventList.length,
+      itemCount: list.length,
       itemBuilder: (context, index) {
-        return TaskTile(event: _displayedEventList[index]);
+        return TaskTile(event: list[index]);
       },
     );
   }

@@ -2,8 +2,11 @@ import "package:flutter/material.dart";
 import 'package:wtasks/app_color.dart';
 
 class FiltersWidget extends StatefulWidget {
-  const FiltersWidget({Key? key, required this.updateFilter}) : super(key: key);
+  const FiltersWidget(
+      {Key? key, required this.filters, required this.updateFilter})
+      : super(key: key);
 
+  final List filters;
   final Function updateFilter;
 
   @override
@@ -12,14 +15,6 @@ class FiltersWidget extends StatefulWidget {
 
 class _FiltersWidgetState extends State<FiltersWidget> {
   String selectedFilter = "All";
-
-  final List filters = [
-    "All",
-    "Stared",
-    "Open",
-    "Closed",
-    "Expired",
-  ];
 
   Widget _buildBadge(title) {
     return Padding(
@@ -58,9 +53,9 @@ class _FiltersWidgetState extends State<FiltersWidget> {
       padding: const EdgeInsets.symmetric(horizontal: 4.0),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: filters.length,
+        itemCount: widget.filters.length,
         itemBuilder: (BuildContext context, int index) {
-          return _buildBadge(filters[index]);
+          return _buildBadge(widget.filters[index]);
         },
       ),
     );
