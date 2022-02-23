@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:wtasks/Data/event.dart';
 import 'package:wtasks/Widget/app_bar.dart';
@@ -13,7 +14,8 @@ class ViewScreen extends StatefulWidget {
 
 class _ViewScreenState extends State<ViewScreen> {
   _ViewScreenState() {
-    _displayedEventList = _eventList.eventListAll;
+    _currentIndex = 0;
+    _displayingEvents = _eventList.eventListAll;
   }
 
   final List _filters = [
@@ -25,25 +27,31 @@ class _ViewScreenState extends State<ViewScreen> {
   ];
 
   final _eventList = EventList();
-  late List<Event> _displayedEventList;
+
+  late int _currentIndex;
+  late List<Event> _displayingEvents;
+  bool _reverseAnimation = false;
 
   _updateFilter(filterName) {
     setState(() {
-      switch (_filters.indexOf(filterName)) {
+      _reverseAnimation = _filters.indexOf(filterName) > _currentIndex;
+      _currentIndex = _filters.indexOf(filterName);
+
+      switch (_currentIndex) {
         case 0:
-          _displayedEventList = _eventList.eventListAll;
+          _displayingEvents = _eventList.eventListAll;
           break;
         case 1:
-          _displayedEventList = _eventList.eventListStared;
+          _displayingEvents = _eventList.eventListStared;
           break;
         case 2:
-          _displayedEventList = _eventList.eventListOpened;
+          _displayingEvents = _eventList.eventListOpened;
           break;
         case 3:
-          _displayedEventList = _eventList.eventListClosed;
+          _displayingEvents = _eventList.eventListClosed;
           break;
         case 4:
-          _displayedEventList = _eventList.eventListExpired;
+          _displayingEvents = _eventList.eventListExpired;
           break;
       }
     });
@@ -56,7 +64,27 @@ class _ViewScreenState extends State<ViewScreen> {
       body: Column(
         children: [
           FiltersWidget(filters: _filters, updateFilter: _updateFilter),
-          Expanded(child: _buildTaskListView(_displayedEventList)),
+          Expanded(
+            child: PageTransitionSwitcher(
+              reverse: _reverseAnimation,
+              transitionBuilder: (
+                child,
+                animation,
+                secondaryAnimation,
+              ) {
+                return SharedAxisTransition(
+                  animation: animation,
+                  secondaryAnimation: secondaryAnimation,
+                  transitionType: SharedAxisTransitionType.horizontal,
+                  child: child,
+                );
+              },
+              child: Container(
+                key: ValueKey(_currentIndex),
+                child: _buildTaskListView(_displayingEvents),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -67,7 +95,6 @@ class _ViewScreenState extends State<ViewScreen> {
       return _buildEmptyListView();
     }
     return ListView.builder(
-      shrinkWrap: true,
       itemCount: list.length,
       itemBuilder: (context, index) {
         return TaskTile(event: list[index]);
@@ -75,10 +102,10 @@ class _ViewScreenState extends State<ViewScreen> {
     );
   }
 
-  Center _buildEmptyListView() {
+  Widget _buildEmptyListView() {
     return const Center(
       child: Text(
-        "Already Clear",
+        "Empty",
         style: TextStyle(
           fontSize: 16.0,
           fontWeight: FontWeight.bold,
