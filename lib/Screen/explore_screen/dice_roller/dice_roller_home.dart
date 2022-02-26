@@ -7,8 +7,6 @@ import 'package:wtasks/app_color.dart';
 class DiceRollerHomeScreen extends StatefulWidget {
   const DiceRollerHomeScreen({Key? key}) : super(key: key);
 
-  static const routeName = '/ExploreScreen/DiceRollerHomeScreen';
-
   @override
   State<DiceRollerHomeScreen> createState() => _DiceRollerHomeScreenState();
 }
@@ -32,19 +30,6 @@ class _DiceRollerHomeScreenState extends State<DiceRollerHomeScreen> {
     });
   }
 
-  selectView(IconData icon, String text, String id) {
-    return PopupMenuItem<String>(
-      value: id,
-      child: Row(
-        children: [
-          Icon(icon, color: DiceModuleColor.color4Dark),
-          const SizedBox(width: 25),
-          Text(text, style: const TextStyle(fontSize: 16)),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +38,7 @@ class _DiceRollerHomeScreenState extends State<DiceRollerHomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CoinCountDisplay(
+            _CoinCountDisplay(
               totalCount: _counter,
               headCount: _headCounter,
             ),
@@ -96,9 +81,11 @@ class _DiceRollerHomeScreenState extends State<DiceRollerHomeScreen> {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return ResultValidationPage(
-                  totalCount: _counter,
-                  headCount: _headCounter,
+                return _ResultValidationPage(
+                  coinCountDisplay: _CoinCountDisplay(
+                    totalCount: _counter,
+                    headCount: _headCounter,
+                  ),
                 );
               },
             ),
@@ -111,32 +98,8 @@ class _DiceRollerHomeScreenState extends State<DiceRollerHomeScreen> {
   }
 }
 
-class CoinCountDisplay extends StatelessWidget {
-  const CoinCountDisplay(
-      {Key? key, required this.totalCount, required this.headCount})
-      : super(key: key);
-
-  final int totalCount;
-  final int headCount;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: DiceModuleColor.color1Light,
-      child: SizedBox(
-        width: 300,
-        height: 180,
-        child: CoinCountDisplayContent(
-          totalCount: totalCount,
-          headCount: headCount,
-        ),
-      ),
-    );
-  }
-}
-
-class CoinCountDisplayContent extends StatelessWidget {
-  const CoinCountDisplayContent(
+class _CoinCountDisplay extends StatelessWidget {
+  const _CoinCountDisplay(
       {Key? key, required this.totalCount, required this.headCount})
       : super(key: key);
 
@@ -153,65 +116,68 @@ class CoinCountDisplayContent extends StatelessWidget {
     );
     final numTextStyle = Theme.of(context).textTheme.headline4;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        const Text(
-          'You have already flipped:',
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return Card(
+      color: DiceModuleColor.color1Light,
+      child: SizedBox(
+        width: 300,
+        height: 180,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text.rich(
-              TextSpan(
-                children: <TextSpan>[
-                  TextSpan(text: '$totalCount', style: numTextStyle),
-                  const TextSpan(text: ' Coins', style: unitTextStyle),
-                ],
-              ),
+            const Text(
+              'You have already flipped:',
             ),
-            Text.rich(
-              TextSpan(
-                children: <TextSpan>[
-                  TextSpan(text: '$headCount', style: numTextStyle),
-                  const TextSpan(text: ' Heads', style: unitTextStyle),
-                ],
-              ),
-            ),
-            Text.rich(
-              TextSpan(
-                children: <TextSpan>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text.rich(
                   TextSpan(
-                      text: '${totalCount - headCount}', style: numTextStyle),
-                  const TextSpan(text: ' Tails', style: unitTextStyle),
-                ],
-              ),
+                    children: <TextSpan>[
+                      TextSpan(text: '$totalCount', style: numTextStyle),
+                      const TextSpan(text: ' Coins', style: unitTextStyle),
+                    ],
+                  ),
+                ),
+                Text.rich(
+                  TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(text: '$headCount', style: numTextStyle),
+                      const TextSpan(text: ' Heads', style: unitTextStyle),
+                    ],
+                  ),
+                ),
+                Text.rich(
+                  TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: '${totalCount - headCount}',
+                          style: numTextStyle),
+                      const TextSpan(text: ' Tails', style: unitTextStyle),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-      ],
+      ),
     );
   }
 }
 
-class ResultValidationPage extends StatelessWidget {
-  const ResultValidationPage({
+class _ResultValidationPage extends StatelessWidget {
+  const _ResultValidationPage({
     Key? key,
-    required this.totalCount,
-    required this.headCount,
+    required this.coinCountDisplay,
   }) : super(key: key);
 
-  final int totalCount;
-  final int headCount;
+  final Widget coinCountDisplay;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CoinCountDisplay(
-          totalCount: totalCount,
-          headCount: headCount,
-        ),
+        child: coinCountDisplay,
       ),
     );
   }
