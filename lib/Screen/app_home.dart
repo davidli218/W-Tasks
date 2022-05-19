@@ -42,6 +42,7 @@ class _AppHomeState extends State<AppHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody:true,
       body: PageTransitionSwitcher(
         transitionBuilder: (
           child,
@@ -61,10 +62,10 @@ class _AppHomeState extends State<AppHome> {
   }
 
   Widget navigationBar() {
-    double screenWidth = MediaQuery.of(context).size.width;
+    double displayWidth = MediaQuery.of(context).size.width;
     return Container(
-      margin: const EdgeInsets.all(20),
-      height: screenWidth * .155,
+      margin: EdgeInsets.all(displayWidth * .05),
+      height: displayWidth * .155,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -79,7 +80,7 @@ class _AppHomeState extends State<AppHome> {
       child: ListView.builder(
         itemCount: 4,
         scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.symmetric(horizontal: screenWidth * .024),
+        padding: EdgeInsets.symmetric(horizontal: displayWidth * .024),
         itemBuilder: (context, index) => InkWell(
           onTap: () {
             setState(() {
@@ -92,13 +93,13 @@ class _AppHomeState extends State<AppHome> {
           child: Stack(
             children: [
               SizedBox(
-                width: screenWidth * .2125,
+                width: displayWidth * .2125,
                 child: Center(
                   child: AnimatedContainer(
                     duration: const Duration(seconds: 1),
                     curve: Curves.fastLinearToSlowEaseIn,
-                    height: index == _currentPage ? screenWidth * .12 : 0,
-                    width: index == _currentPage ? screenWidth * .2125 : 0,
+                    height: index == _currentPage ? displayWidth * .12 : 0,
+                    width: index == _currentPage ? displayWidth * .2125 : 0,
                     decoration: BoxDecoration(
                       color: index == _currentPage
                           ? Colors.blueAccent.withOpacity(.2)
@@ -109,11 +110,11 @@ class _AppHomeState extends State<AppHome> {
                 ),
               ),
               Container(
-                width: screenWidth * .2125,
+                width: displayWidth * .2125,
                 alignment: Alignment.center,
                 child: Icon(
                   _listOfPageIcons[index],
-                  size: screenWidth * .076,
+                  size: displayWidth * .076,
                   color: index == _currentPage
                       ? Colors.blueAccent
                       : Colors.black26,
@@ -135,7 +136,7 @@ class _AppHomeState extends State<AppHome> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(.1),
+            color: Colors.black.withOpacity(.15),
             blurRadius: 30,
             offset: const Offset(0, 10),
           ),
