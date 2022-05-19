@@ -1,24 +1,24 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:wtasks/Screen/account_screen/account_screen.dart';
-import 'package:wtasks/Screen/dashboard_screen/dashboard_screen.dart';
+import 'package:wtasks/Screen/home_screen/home_screen.dart';
 import 'package:wtasks/Screen/explore_screen/explore_screen.dart';
 import 'package:wtasks/Screen/view_screen/view_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class AppHome extends StatefulWidget {
+  const AppHome({Key? key}) : super(key: key);
 
   static const routeName = '/';
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<AppHome> createState() => _AppHomeState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _AppHomeState extends State<AppHome> {
   var _currentPage = 0;
 
   final List<Widget> _pageList = <Widget>[
-    const DashboardScreen(),
+    const HomeScreen(),
     const ViewScreen(),
     const ExploreScreen(),
     const AccountScreen(),

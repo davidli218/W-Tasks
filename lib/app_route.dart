@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:wtasks/Screen/app_home.dart';
 
-const String homeScreen = HomeScreen.routeName;
+const String homeScreen = AppHome.routeName;
 
 final routes = {
-  homeScreen: (context) => const HomeScreen(),
+  homeScreen: (context) => const AppHome(),
 };
 
 class UnknownPage extends StatelessWidget {
