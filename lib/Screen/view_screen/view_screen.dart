@@ -9,7 +9,7 @@ class ViewScreen extends StatefulWidget {
   const ViewScreen({Key? key}) : super(key: key);
 
   @override
-  _ViewScreenState createState() => _ViewScreenState();
+  State<ViewScreen> createState() => _ViewScreenState();
 }
 
 class _ViewScreenState extends State<ViewScreen> {

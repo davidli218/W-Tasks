@@ -9,7 +9,7 @@ class TaskTile extends StatefulWidget {
   final Event event;
 
   @override
-  _TaskTileState createState() => _TaskTileState();
+  State<TaskTile> createState() => _TaskTileState();
 }
 
 class _TaskTileState extends State<TaskTile> {

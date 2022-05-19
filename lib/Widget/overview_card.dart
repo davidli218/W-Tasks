@@ -20,7 +20,7 @@ class OverviewCard extends StatefulWidget {
   final Widget openBuilder;
 
   @override
-  _OverviewCardState createState() => _OverviewCardState();
+  State<OverviewCard> createState() => _OverviewCardState();
 }
 
 class _OverviewCardState extends State<OverviewCard> {

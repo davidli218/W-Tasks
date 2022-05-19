@@ -10,7 +10,7 @@ class FiltersWidget extends StatefulWidget {
   final Function updateFilter;
 
   @override
-  _FiltersWidgetState createState() => _FiltersWidgetState();
+  State<FiltersWidget> createState() => _FiltersWidgetState();
 }
 
 class _FiltersWidgetState extends State<FiltersWidget> {

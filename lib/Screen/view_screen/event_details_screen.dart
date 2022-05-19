@@ -6,7 +6,7 @@ class EventDetailsScreen extends StatefulWidget {
   static const routeName = '/ViewScreen/EventDetailsScreen';
 
   @override
-  _EventDetailsScreenState createState() => _EventDetailsScreenState();
+  State<EventDetailsScreen> createState() => _EventDetailsScreenState();
 }
 
 class _EventDetailsScreenState extends State<EventDetailsScreen> {
